@@ -41,7 +41,10 @@ const App: React.FC = () => {
         {/* RIGHT SIDE (40%) */}
         <div className="right-panel">
           <div className="three-container">
+            <div className="section-label">3D SCENE</div>
+            
             {/* 3D Scene placeholder (we'll add Three.js here later) */}
+            
           </div>
         </div>
       </main>
