@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import {
-  RadialBarChart,
-  RadialBar,
+  //RadialBarChart,
+  //RadialBar,
   ResponsiveContainer,
-  PolarAngleAxis,
+  //PolarAngleAxis,
   AreaChart,
   Area,
   XAxis,
@@ -39,9 +39,10 @@ const FanSpeedWidget: React.FC = () => {
   }, [liveData?.fan_speed]);
 
   const rpm = liveData?.fan_speed ?? 0;
-  const maxRPM = 2000;
-  const percent = Math.min(100, Math.round((rpm / maxRPM) * 100));
+  //const maxRPM = 2000;
+  //const percent = Math.min(100, Math.round((rpm / maxRPM) * 100));
 
+  /*
   const radialData = [
     {
       name: "Fan",
@@ -49,6 +50,8 @@ const FanSpeedWidget: React.FC = () => {
       fill: "#e58033",
     },
   ];
+
+  */
 
   return (
     <Card
