@@ -42,11 +42,25 @@ const App: React.FC = () => {
         <div className="right-panel">
           <div className="three-container">
             <div className="section-label">3D SCENE</div>
-            
-            {/* 3D Scene placeholder (we'll add Three.js here later) */}
-            
+
+            {/* Under construction placeholder */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+                fontSize: "1.8rem",
+                opacity: 0.4,
+                color: "#5a5a5aff",
+              }}
+            >
+              🚧 Under Construction 🚧
+            </div>
+
           </div>
         </div>
+
       </main>
 
       <footer className="app-footer">
