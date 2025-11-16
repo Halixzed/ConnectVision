@@ -8,6 +8,7 @@ import "react-resizable/css/styles.css";
 import "./WidgetsPanel.css";
 import PowerWidget from "./PowerWidget";
 import TemperatureWidget from "./TemperatureWidget";
+import FanSpeedWidget from "./FanSpeedWidget";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const LOCAL_STORAGE_KEY = "grid-layout";
@@ -76,7 +77,7 @@ const WidgetsPanel: React.FC = () => {
         </div>
 
         <div key="c">
-            <PowerWidget />
+            <FanSpeedWidget  />
         </div>
 
       </ResponsiveGridLayout>

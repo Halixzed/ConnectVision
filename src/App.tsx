@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import WidgetsPanel from "./WidgetsPanel";
+import MapView from "./MapView";
 
 
 
@@ -20,11 +21,20 @@ const App: React.FC = () => {
         <div className="left-panel">
           <section className="top-section">
             <WidgetsPanel />
+            <div className="dashboard-label">DASHBOARD</div>
           </section>
 
           <section className="bottom-section">
-            <h2>Bottom Section</h2>
-            <p>Content for the bottom section goes here.</p>
+            <div className="bottom-left">
+              {/* Future widgets / logs / statuses */}
+              <div className="section-label">LEVELS</div>
+            </div>
+
+            <div className="bottom-right">
+              {/* Map goes here */}
+              <MapView />
+              <div className="section-label">MAP</div>
+            </div>
           </section>
         </div>
 
