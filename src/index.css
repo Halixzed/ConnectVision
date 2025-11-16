@@ -1,0 +1,22 @@
+/* Remove default margins & ensure full-height root */
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;   /* same as your app background */
+  color: #000000;
+  overflow: hidden;       /* <- no page scroll */
+  overscroll-behavior: none; /* prevent overscroll glow/bounce */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
