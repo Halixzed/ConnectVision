@@ -50,15 +50,16 @@ const TemperatureWidget: React.FC = () => {
   return (
     <Card
       sx={{
-        background: "linear-gradient(180deg, #1a1a1a 0%, #111 100%)",
-        color: "#fff",
+        background: "var(--card-bg)",
+        color: "var(--text)",
         height: "100%",
-        borderRadius: 3,
+        borderRadius: 1,
         boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         overflow: "hidden",
+        
       }}
     >
       <CardContent>

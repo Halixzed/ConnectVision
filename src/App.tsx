@@ -1,7 +1,11 @@
 import React from "react";
 import "./App.css";
 import WidgetsPanel from "./WidgetsPanel";
-import MapView from "./MapView";
+//import MapView from "./MapView";
+import ButtonLabel from "./ButtonLabel";
+import DateTime from "./DateTime";
+import SettingsPanel from "./SettingsPanel";
+import WelcomeMessage from "./WelcomeMessage";
 
 
 
@@ -14,27 +18,35 @@ const App: React.FC = () => {
       <header className="app-header">
         <h1 className="app-title">flex<span className="accent">e</span>serve Conn<span className="accent">e</span>ct</h1>
         <nav>{/* add nav links later */}</nav>
+        
+        <div className="header-right">
+          <DateTime />
+          <SettingsPanel />
+        </div>
       </header>
 
       <main className="app-main">
         {/* LEFT SIDE (60%) */}
         <div className="left-panel">
+          
           <section className="top-section">
-            <WidgetsPanel />
-            <div className="dashboard-label">DASHBOARD</div>
+            
+            <div className="section-label"></div>
+            <ButtonLabel title="BU Eastern Canada" subtitle="53 stores inside" />
+            <ButtonLabel title="BU Gulf Coast" subtitle="467 stores inside" />
+            <ButtonLabel title="BU Texas" subtitle="469 stores inside" />
+            <ButtonLabel title="BU Western Canada" subtitle="5 stores inside" />
           </section>
 
           <section className="bottom-section">
             <div className="bottom-left">
               {/* Future widgets / logs / statuses */}
-              <div className="section-label">LEVELS</div>
+              
+              <WidgetsPanel />
+              <div className="dashboard-label"></div>
             </div>
 
-            <div className="bottom-right">
-              {/* Map goes here */}
-              <MapView />
-              <div className="section-label">MAP</div>
-            </div>
+            
           </section>
         </div>
 

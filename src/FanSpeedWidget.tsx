@@ -58,9 +58,9 @@ const FanSpeedWidget: React.FC = () => {
       sx={{
         height: "100%",
         width: "100%",
-        background: "linear-gradient(180deg, #1a1a1a 0%, #111 100%)",
-        color: "#fff",
-        borderRadius: "12px",
+        background: "var(--card-bg)",
+        color: "var(--text)",
+        borderRadius: "1px",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -94,7 +94,7 @@ const FanSpeedWidget: React.FC = () => {
         
 
         {/* RPM TREND CHART */}
-        <div style={{ width: "100%", height: 80 }}>
+        <div style={{ width: "100%", height: 120 }}>
           <ResponsiveContainer>
             <AreaChart data={history}>
               <CartesianGrid strokeDasharray="3 3" stroke="#222" />

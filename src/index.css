@@ -19,4 +19,19 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Light Mode */
+body[data-theme="light"] {
+  background: #f2f2f2;
+  color: #222;
+}
 
+/* Dark Mode */
+body[data-theme="dark"] {
+  background: #222;
+  color: #ddd;
+}
+
+/* Smooth transition */
+body {
+  transition: background 0.25s ease, color 0.25s ease;
+}
