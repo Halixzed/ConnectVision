@@ -5,7 +5,7 @@ import WidgetsPanel from "./WidgetsPanel";
 import ButtonLabel from "./ButtonLabel";
 import DateTime from "./DateTime";
 import SettingsPanel from "./SettingsPanel";
-import WelcomeMessage from "./WelcomeMessage";
+//import WelcomeMessage from "./WelcomeMessage";
 
 
 
