@@ -1,5 +1,5 @@
 import { useState } from "react";
-import zoneHeaderImg from "./public/assets/zone-header.svg"; // adjust path
+ // adjust path
 
 
 interface ZoneActions {
