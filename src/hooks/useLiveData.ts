@@ -19,7 +19,7 @@ export const useLiveData = () => {
   const THROTTLE_MS = 500; // update UI every 0.5 sec
 
   useEffect(() => {
-    const ws = new WebSocket("wss://backend-old-glitter-6811.fly.dev/ws");
+    const ws = new WebSocket("wss://unitsimulatorservice.onrender.com/ws");
 
     ws.onmessage = (event) => {
       const parsed: SensorData = JSON.parse(event.data);

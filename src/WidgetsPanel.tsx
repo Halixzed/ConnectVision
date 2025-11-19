@@ -9,6 +9,7 @@ import "./WidgetsPanel.css";
 import PowerWidget from "./PowerWidget";
 import TemperatureWidget from "./TemperatureWidget";
 import FanSpeedWidget from "./FanSpeedWidget";
+import StoresStatusWidget from "./StoresStatusWidget";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const LOCAL_STORAGE_KEY = "grid-layout";
@@ -78,6 +79,10 @@ const WidgetsPanel: React.FC = () => {
 
         <div key="c">
             <FanSpeedWidget  />
+        </div>
+
+        <div key="d">
+            <StoresStatusWidget online={120} offline={30} />
         </div>
 
       </ResponsiveGridLayout>

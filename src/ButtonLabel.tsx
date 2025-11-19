@@ -20,13 +20,13 @@ export default function ButtonLabel({ title, subtitle, onClick }: Props) {
         cursor: "pointer",
         fontFamily: "Inter, sans-serif",
 
-        border: "1px solid rgba(0, 0, 0, 0.5)",
+        border: "1px solid rgba(0, 0, 0, 0.2)",
         boxShadow: hover
           ? "0 4px 12px rgba(0, 0, 0, 0.2)"
           : "0 2px 6px rgba(0, 0, 0, 0.1)",
 
         backgroundColor: hover
-          ? "rgba(255, 255, 255, 0.3)"
+          ? "rgba(255, 255, 255, 1)"
           : "rgba(255, 255, 255, 0.2)",
 
         transform: hover ? "translateY(-2px)" : "translateY(0)",
