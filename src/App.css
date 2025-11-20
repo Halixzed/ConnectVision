@@ -226,7 +226,7 @@ body[data-theme="dark"] {
   overflow: hidden;
    /* subtle black stroke */
   position: relative;
-  align-items: center;
+  
 
   /* Center everything inside */
   display: flex;
@@ -261,18 +261,17 @@ body[data-theme="dark"] {
 .section-label {
   position: absolute;
   top: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  padding-left: 5%;
 
   font-family: 'Inter', sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  letter-spacing: 0.6rem;
+  letter-spacing: 0.9rem;
   white-space: nowrap;
 
   color: rgba(var(--text-rgb), 0.1);/* adjust or use CSS variable */
 
   pointer-events: none;
   user-select: none;
-  text-align: center;
+  text-align: left;
 }
