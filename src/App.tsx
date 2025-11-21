@@ -68,25 +68,48 @@ const App: React.FC = () => {
     // Slide 2 - Operator View with 3D Scene
     <>
       <h1 className="section-label">Operator Control</h1>
-      <div className="operator-layout">
-        <section className="operator-control-section operator-layout-left">
-          <OperatorControlCard
-            unitName="Flexeserve 2 T 600"
-            zone1={{ label: "Zone 1", onTurnOn: () => {}, onTurnOff: () => {}, onSet75: () => {}, onSet85: () => {} }}
-            zone2={{ label: "Zone 2", onTurnOn: () => {}, onTurnOff: () => {}, onSet75: () => {}, onSet85: () => {} }}
-          />
-          <OperatorControlCard
-            unitName="Flexeserve 2 T 600"
-            zone1={{ label: "Zone 1", onTurnOn: () => {}, onTurnOff: () => {}, onSet75: () => {}, onSet85: () => {} }}
-            zone2={{ label: "Zone 2", onTurnOn: () => {}, onTurnOff: () => {}, onSet75: () => {}, onSet85: () => {} }}
-          />
-        </section>
-        <div className="operator-layout-right">
-          <h2 className="mini-title">3D Visualisation</h2>
-          <div className="three-container">
-            <ThreeScene />
-          </div>
+      <div className="operator-hero">
+        <div className="operator-hero-scene">
+          <ThreeScene />
         </div>
+        <section className="operator-drawer">
+          <div className="operator-drawer-content">
+            <OperatorControlCard
+              unitName="Flexeserve 2 T 600"
+              zone1={{
+                label: "Zone 1",
+                onTurnOn: () => {},
+                onTurnOff: () => {},
+                onSet75: () => {},
+                onSet85: () => {},
+              }}
+              zone2={{
+                label: "Zone 2",
+                onTurnOn: () => {},
+                onTurnOff: () => {},
+                onSet75: () => {},
+                onSet85: () => {},
+              }}
+            />
+            <OperatorControlCard
+              unitName="Flexeserve 2 T 600"
+              zone1={{
+                label: "Zone 1",
+                onTurnOn: () => {},
+                onTurnOff: () => {},
+                onSet75: () => {},
+                onSet85: () => {},
+              }}
+              zone2={{
+                label: "Zone 2",
+                onTurnOn: () => {},
+                onTurnOff: () => {},
+                onSet75: () => {},
+                onSet85: () => {},
+              }}
+            />
+          </div>
+        </section>
       </div>
     </>,
   ];

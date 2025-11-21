@@ -54,21 +54,9 @@ export default function PresentationWrapper({ slides, onSlideChange }: Props) {
       }}
     >
       {slides.map((slide, index) => (
-        <div
-          key={index}
-          style={{
-            width: "100%",
-            minHeight: "100vh",
-            scrollSnapAlign: "start",
-            boxSizing: "border-box",
-            paddingBottom: "3rem",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          {slide}
-        </div>
+        <section className="slide-shell" key={index}>
+          <div className="slide-scroll">{slide}</div>
+        </section>
       ))}
     </div>
   );
