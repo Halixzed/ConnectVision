@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import {
   AreaChart,
@@ -21,10 +21,12 @@ interface DataPoint {
 const TemperatureWidget: React.FC = () => {
   const liveData = useLiveData();
   const [history, setHistory] = useState<DataPoint[]>([]);
+  const temperature =
+    typeof liveData?.temperature === "number" ? liveData.temperature : null;
 
   // Keep recent temperature history
   useEffect(() => {
-    if (!liveData?.temperature) return;
+    if (temperature === null) return;
 
     const timestamp = new Date().toLocaleTimeString([], {
       minute: "2-digit",
@@ -36,13 +38,13 @@ const TemperatureWidget: React.FC = () => {
         ...prev,
         {
           time: timestamp,
-          value: liveData.temperature,
-          door_opened: !!liveData.door_opened,
+          value: temperature,
+          door_opened: !!liveData?.door_opened,
         },
       ];
       return updated.slice(-30);
     });
-  }, [liveData?.temperature, liveData?.door_opened]);
+  }, [temperature, liveData?.door_opened]);
 
   // Points where door was opened
   const alarmPoints = history.filter((d) => d.door_opened);
@@ -59,7 +61,6 @@ const TemperatureWidget: React.FC = () => {
         flexDirection: "column",
         justifyContent: "space-between",
         overflow: "hidden",
-        
       }}
     >
       <CardContent>
@@ -74,7 +75,7 @@ const TemperatureWidget: React.FC = () => {
           Temperature
         </Typography>
         <Typography variant="h5" sx={{ mb: 1 }}>
-          {liveData ? `${liveData.temperature.toFixed(2)} °C` : "--"}
+          {temperature !== null ? `${temperature.toFixed(2)} °C` : "--"}
         </Typography>
 
         <div style={{ width: "100%", height: 120 }}>
@@ -101,7 +102,6 @@ const TemperatureWidget: React.FC = () => {
                 }}
               />
 
-              {/* Orange area for temperature trend */}
               <defs>
                 <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#e54c33" stopOpacity={0.6} />
@@ -118,8 +118,13 @@ const TemperatureWidget: React.FC = () => {
                 isAnimationActive={false}
               />
 
-              {/* Scatter for alarm events */}
-              <Scatter data={alarmPoints} dataKey="value" fill="#ff0000" isAnimationActive={false} hide />
+              <Scatter
+                data={alarmPoints}
+                dataKey="value"
+                fill="#ff0000"
+                isAnimationActive={false}
+                hide
+              />
             </AreaChart>
           </ResponsiveContainer>
         </div>

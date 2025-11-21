@@ -1,6 +1,7 @@
 import { useState } from "react";
  // adjust path
 
+const backgroundSvgPath = './public/Power.svg';
 
 interface ZoneActions {
   label: string;
@@ -80,9 +81,12 @@ export default function OperatorControlCard({ unitName, zone1, zone2 }: Props) {
           alignItems: "center",
           padding: "1rem 1.2rem",
           borderRadius: "6px",
-          background: "rgba(var(--text-rgb), 0.1)",
-          cursor: "pointer",
           
+          
+          cursor: "pointer",
+          backgroundImage: `url(${backgroundSvgPath})`,
+          backgroundRepeat: "no-repeat",          
+          backgroundPosition: "center",
           transition: "background 0.3s ease",
         }}
       >

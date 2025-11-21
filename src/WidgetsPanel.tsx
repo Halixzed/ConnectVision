@@ -1,8 +1,7 @@
 import React from "react";
-//import { Card, CardContent, Typography } from "@mui/material";
-import { WidthProvider, Responsive } from "react-grid-layout";
-import useMeasure from "react-use-measure";
+import { Responsive } from "react-grid-layout";
 import type { Layout } from "react-grid-layout";
+import useMeasure from "react-use-measure";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./WidgetsPanel.css";
@@ -11,7 +10,6 @@ import TemperatureWidget from "./TemperatureWidget";
 import FanSpeedWidget from "./FanSpeedWidget";
 import StoresStatusWidget from "./StoresStatusWidget";
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
 const LOCAL_STORAGE_KEY = "grid-layout";
 
 const defaultLayout: Layout[] = [
@@ -51,41 +49,47 @@ const WidgetsPanel: React.FC = () => {
     setLayout(newLayout);
   }, []);
 
+  const computedWidth =
+    bounds.width ||
+    (typeof window !== "undefined" ? window.innerWidth : 0);
+
   return (
-    <div ref={ref} style={{ width: "100%", height: "100%", overflowY: "auto", paddingBottom: "2rem" }}>
-      <ResponsiveGridLayout
-        className="layout"
-        layouts={{ lg: layout }}
-        onLayoutChange={handleLayoutChange}
-        cols={{ lg: 6, md: 4, sm: 2, xs: 1, xxs: 1 }}
-        rowHeight={120}
-        width={bounds.width || 1000}
-        isResizable
-        isDraggable
-        compactType="vertical"
-        preventCollision={false}
-        useCSSTransforms
-        onResizeStop={() => window.dispatchEvent(new Event("resize"))}
-        onDragStop={() => window.dispatchEvent(new Event("resize"))}
-      >
-        
-        <div key="a">
-          <TemperatureWidget />
-        </div>
+    <div ref={ref} className="widgets-panel-wrapper">
+      <div className="widgets-panel-inner">
+        {computedWidth > 0 && (
+          <Responsive
+            className="layout"
+            layouts={{ lg: layout }}
+            onLayoutChange={handleLayoutChange}
+            cols={{ lg: 6, md: 4, sm: 2, xs: 1, xxs: 1 }}
+            rowHeight={120}
+            width={computedWidth}
+            isResizable
+            isDraggable
+            compactType="vertical"
+            preventCollision={false}
+            useCSSTransforms
+            onResizeStop={() => window.dispatchEvent(new Event("resize"))}
+            onDragStop={() => window.dispatchEvent(new Event("resize"))}
+          >
+            <div key="a">
+              <TemperatureWidget />
+            </div>
 
-        <div key="b">
-            <PowerWidget />
-        </div>
+            <div key="b">
+              <PowerWidget />
+            </div>
 
-        <div key="c">
-            <FanSpeedWidget  />
-        </div>
+            <div key="c">
+              <FanSpeedWidget />
+            </div>
 
-        <div key="d">
-            <StoresStatusWidget online={120} offline={30} />
-        </div>
-
-      </ResponsiveGridLayout>
+            <div key="d">
+              <StoresStatusWidget online={120} offline={30} />
+            </div>
+          </Responsive>
+        )}
+      </div>
     </div>
   );
 };
