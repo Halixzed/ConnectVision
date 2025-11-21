@@ -15,7 +15,7 @@ export default function ButtonLabel({
   subtitle,
   alarms = [],
   offlineUnits = [],
-  onClick,
+  
 }: Props) {
   const [modalType, setModalType] = useState<ModalType>(null);
 

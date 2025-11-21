@@ -97,7 +97,7 @@ export default function StoresStatusWidget({ online, offline }: Props) {
                 outerRadius="80%"
                 paddingAngle={2}
                 >
-                {data.map((entry, index) => (
+                {data.map((_, index) => (
                     <Cell key={index} fill={COLORS[index]} />
                 ))}
                 </Pie>
