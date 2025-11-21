@@ -84,7 +84,7 @@ const App: React.FC = () => {
         <div className="operator-layout-right">
           <h2 className="mini-title">3D Visualisation</h2>
           <div className="three-container">
-            <ThreeScene modelUrl="./models/demo.glb" />
+            <ThreeScene />
           </div>
         </div>
       </div>

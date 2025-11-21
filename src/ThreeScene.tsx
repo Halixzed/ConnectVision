@@ -8,6 +8,8 @@ interface ThreeSceneProps {
   modelUrl?: string;
 }
 
+export const DEFAULT_MODEL_URL = `${import.meta.env.BASE_URL}models/demo.glb`;
+
 function LoadedModel({ url }: { url: string }) {
   const { scene, cameras } = useGLTF(url);
   const { camera, set } = useThree();
@@ -37,7 +39,7 @@ function LoadedModel({ url }: { url: string }) {
   return <primitive object={scene} />;
 }
 
-export default function ThreeScene({ modelUrl = "./models/demo.glb" }: ThreeSceneProps) {
+export default function ThreeScene({ modelUrl = DEFAULT_MODEL_URL }: ThreeSceneProps) {
   const { theme } = useTheme();
   const [backgroundColor, setBackgroundColor] = useState(() => {
     const cssValue = getComputedStyle(document.body)
@@ -90,4 +92,4 @@ export default function ThreeScene({ modelUrl = "./models/demo.glb" }: ThreeScen
   );
 }
 
-useGLTF.preload("/models/demo.glb");
+useGLTF.preload(DEFAULT_MODEL_URL);

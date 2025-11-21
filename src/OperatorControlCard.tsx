@@ -1,7 +1,6 @@
 import { useState } from "react";
- // adjust path
 
-const backgroundSvgPath = './public/Power.svg';
+const backgroundSvgPath = `${import.meta.env.BASE_URL}Power.svg`;
 
 interface ZoneActions {
   label: string;
