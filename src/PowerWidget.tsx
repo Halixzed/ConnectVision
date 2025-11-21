@@ -14,10 +14,11 @@ import { useLiveData } from "./hooks/useLiveData";
 const PowerWidget: React.FC = () => {
   const liveData = useLiveData();
   const [history, setHistory] = useState<{ time: string; value: number }[]>([]);
+  const power = typeof liveData?.power === "number" ? liveData.power : null;
 
   // Append new power data to history
   useEffect(() => {
-    if (!liveData?.power) return;
+    if (power === null) return;
 
     const timestamp = new Date().toLocaleTimeString([], {
       minute: "2-digit",
@@ -25,10 +26,10 @@ const PowerWidget: React.FC = () => {
     });
 
     setHistory((prev) => {
-      const updated = [...prev, { time: timestamp, value: liveData.power }];
+      const updated = [...prev, { time: timestamp, value: power }];
       return updated.slice(-30); // keep last 30 readings
     });
-  }, [liveData?.power]);
+  }, [power]);
 
   return (
     <Card
@@ -62,7 +63,7 @@ const PowerWidget: React.FC = () => {
           Power
         </Typography>
         <Typography variant="h5" sx={{ mb: 1 }}>
-          {liveData ? `${liveData.power.toFixed(2)} kW` : "--"}
+          {power !== null ? `${power.toFixed(2)} kW` : "--"}
         </Typography>
 
         {/* --- Area Chart --- */}

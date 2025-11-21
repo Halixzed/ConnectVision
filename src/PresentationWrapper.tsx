@@ -58,8 +58,13 @@ export default function PresentationWrapper({ slides, onSlideChange }: Props) {
           key={index}
           style={{
             width: "100%",
-            height: "100vh",
+            minHeight: "100vh",
             scrollSnapAlign: "start",
+            boxSizing: "border-box",
+            paddingBottom: "3rem",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
           {slide}
