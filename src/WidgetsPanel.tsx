@@ -10,13 +10,13 @@ import TemperatureWidget from "./TemperatureWidget";
 import FanSpeedWidget from "./FanSpeedWidget";
 import StoresStatusWidget from "./StoresStatusWidget";
 
-const LOCAL_STORAGE_KEY = "grid-layout";
+const LOCAL_STORAGE_KEY = "grid-layout-v2";
 
 const defaultLayout: Layout[] = [
-  { i: "a", x: 0, y: 0, w: 2, h: 2 },
-  { i: "b", x: 2, y: 0, w: 2, h: 2 },
-  { i: "c", x: 4, y: 0, w: 2, h: 2 },
-  { i: "d", x: 0, y: 2, w: 2, h: 2 },
+  { i: "a", x: 0, y: 0, w: 1, h: 2 },
+  { i: "b", x: 1, y: 0, w: 1, h: 2 },
+  { i: "c", x: 0, y: 2, w: 1, h: 2 },
+  { i: "d", x: 1, y: 2, w: 1, h: 2 },
 ];
 
 const loadSavedLayout = (): Layout[] => {
@@ -61,9 +61,11 @@ const WidgetsPanel: React.FC = () => {
             className="layout"
             layouts={{ lg: layout }}
             onLayoutChange={handleLayoutChange}
-            cols={{ lg: 6, md: 4, sm: 2, xs: 1, xxs: 1 }}
-            rowHeight={120}
+            cols={{ lg: 2, md: 2, sm: 1, xs: 1, xxs: 1 }}
+            rowHeight={100}
             width={computedWidth}
+            margin={[12, 12]}
+            containerPadding={[12, 12]}
             isResizable
             isDraggable
             compactType="vertical"
